@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fermerlik Simulyatori</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="character-selection" class="screen">
+            <h1>Fermerlik Simulyatori</h1>
+            <p>Qahramoningizni tanlang:</p>
+            <div class="characters">
+                <button onclick="startGame('boy')">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140047.png" alt="O'g'il bola">
+                    <span>O'g'il bola</span>
+                </button>
+                <button onclick="startGame('girl')">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt="Qiz bola">
+                    <span>Qiz bola</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="game-screen" class="screen hidden">
+            <div class="game-header">
+                <div class="character-info">
+                    <img id="player-avatar" src="" alt="Player">
+                    <div>
+                        <h2 id="player-name"></h2>
+                        <div id="player-resources">
+                            <span>Pul: <span id="money">100</span></span>
+                            <span>Don: <span id="seeds">10</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-time">
+                    Kun: <span id="day">1</span>
+                </div>
+            </div>
+
+            <div class="game-main">
+                <div class="farm-area">
+                    <h3>Fermangiz</h3>
+                    <div id="farm-land" class="land"></div>
+                </div>
+
+                <div class="actions">
+                    <h3>Harakatlar</h3>
+                    <button onclick="plantCrop('bugdoy')">Bug'doy ekish (5 don, 10 pul)</button>
+                    <button onclick="plantCrop('sabzi')">Sabzi ekish (3 don, 15 pul)</button>
+                    <button onclick="plantCrop('kartoshka')">Kartoshka ekish (7 don, 20 pul)</button>
+                    <button onclick="nextDay()">Keyingi kun</button>
+                    <button onclick="harvestAll()">Hamma hosilni yig'ib olish</button>
+                    <button onclick="breedPlants()">O'simliklarni chatishtirish (50 pul)</button>
+                </div>
+
+                <div class="inventory">
+                    <h3>Inventoringiz</h3>
+                    <div id="inventory-items"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="breeding-screen" class="screen hidden">
+            <h2>O'simliklarni chatishtirish</h2>
+            <div id="breeding-plants"></div>
+            <button onclick="cancelBreeding()">Bekor qilish</button>
+        </div>
+    </div>
+
+    <div class="keyboard-help">
+        <h4>Klaviatura boshqaruvlari:</h4>
+        <p><strong>W</strong> - Oldinga harakatlanish</p>
+        <p><strong>G</strong> - O'simlik ekish menyusi</p>
+        <p><strong>V</strong> - Yangi nav yaratish</p>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
